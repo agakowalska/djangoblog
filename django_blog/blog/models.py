@@ -6,17 +6,19 @@ class Category(models.Model):
     category_title = models.CharField(max_length=250)
 
     def __str__(self):
-        return self.title
+        return self.category_title
 
 class Post(models.Model):
-    title = models.CharField(max_length=250)
+    post_title = models.CharField(max_length=250)
     body = models.TextField()
     draft = models.BooleanField(null=False, blank=True, default=True)
     pub_date = models.DateTimeField(verbose_name='Date published', null=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.PROTECT, null=True)
+
+
 
     def __str__(self):
-        return self.title
+        return self.post_title
 
 

@@ -3,7 +3,9 @@
 
 <div class="row">
     <h1 class="text-center">{{ title }}</h1>
+    <hr>
+    <div class="text-center">{{ post.body }}</div>
+    <p>Posted on: {{ post.pub_date }}, Author: {{ post.author }}, Category: {{ post.category }}</p>
 </div>
-
 
 {% endblock %}

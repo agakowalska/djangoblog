@@ -4,8 +4,9 @@
         {% for post in posts %}
         <div class="row">
             <section class="col">
-                <a href="{% url 'blog:details' post.id %}"><h2>{{ post.title }}</h2></a>
-                <div>{{ post.pub_date }}</div>
+                <h2 class="text-center"><a href="{% url 'blog:details' post.id %}">{{ post.post_title }}</h2></a>
+                <div class="text-center">{{ post.body }}</div>
+                <p>Posted on: {{ post.pub_date }}, Author: {{ post.author }}, Category: {{ post.category }}</p>
             </section>
         </div>
         {% endfor %}
